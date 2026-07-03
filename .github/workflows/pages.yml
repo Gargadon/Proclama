@@ -1,44 +1,44 @@
 name: Deploy Website to GitHub Pages
 
-    on:
-      # Se ejecuta cada vez que subes cambios a la rama main
-      push:
-        branches: ["main"]
-      # Permite ejecutarlo manualmente desde la pestaña Actions
-      workflow_dispatch:
+on:
+  # Se ejecuta cada vez que subes cambios a la rama main
+  push:
+    branches: ["main"]
+  # Permite ejecutarlo manualmente desde la pestaña Actions
+  workflow_dispatch:
 
-    # Permisos de seguridad requeridos por GitHub Pages
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
+# Permisos de seguridad requeridos por GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
-    # Permite solo un despliegue concurrente a la vez
-    concurrency:
-      group: "pages"
-      cancel-in-progress: false
+# Permite solo un despliegue concurrente a la vez
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
-    jobs:
-      deploy:
-        environment:
-          name: github-pages
-          url: ${{ steps.deployment.outputs.page_url }}
-        runs-on: ubuntu-latest
-        steps:
-          - name: Checkout repository
-            uses: actions/checkout@v4
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-          - name: Setup GitHub Pages
-            uses: actions/configure-pages@v5
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
 
-          - name: Upload artifact
-            uses: actions/upload-pages-artifact@v3
-            with:
-              # ¡IMPORTANTE!:
-              # Si pusiste el index.html en la raíz del repositorio, déjalo como '.'
-              # Si dejaste todo dentro de una carpeta "website", cámbialo a './website'
-              path: '.'
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # ¡IMPORTANTE!:
+          # Si pusiste el index.html en la raíz del repositorio, déjalo como '.'
+          # Si dejaste todo dentro de una carpeta "website", cámbialo a './website'
+          path: '.'
 
-          - name: Deploy to GitHub Pages
-            id: deployment
-            uses: actions/deploy-pages@v4
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
