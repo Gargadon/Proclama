@@ -10,7 +10,7 @@
 
 ---
 
-> [!IMPORTANTE]
+> [!IMPORTANT]
 > **Licenciamiento y Período de Prueba:** Proclama ofrece una licencia perpetua de **$49 USD (pago único)** para desbloquear todas las capacidades de nivel profesional. Para iglesias pequeñas, cuenta con una versión gratuita (**Free Evaluation Edition**) totalmente operativa y de uso indefinido que aplica restricciones básicas (marca de agua discreta en proyección, límite de 3 versiones de la Biblia, límite diario de 10 cambios de diapositiva en el control remoto web, y desactivación de módulos de red y avanzados como NDI, Stage Display, Modo Chroma o Respaldos automatizados). Para cotizaciones y adquisición de licencias, por favor póngase en contacto a través de: `dkantun [at] gmail [dot] com`.
 
 ---
