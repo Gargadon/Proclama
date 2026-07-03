@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // If logo active
     if (isLogoShown) {
-      screenText.innerHTML = `<div style="display:flex; flex-direction:column; align-items:center; gap:10px;"><img src="${import.meta.env.BASE_URL}images/logo.png" style="height: 60px; filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));"> <span style="font-family:'Outfit',sans-serif; font-weight:800; font-size:1.6rem; letter-spacing: 0.05em;">PROCLAMA</span></div>`;
+      screenText.innerHTML = `<div style="display:flex; flex-direction:column; align-items:center; gap:10px;"><img src="${import.meta.env.BASE_URL.replace(/\/?$/, "/")}images/logo.png" style="height: 60px; filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));"> <span style="font-family:'Outfit',sans-serif; font-weight:800; font-size:1.6rem; letter-spacing: 0.05em;">PROCLAMA</span></div>`;
       screenRef.textContent = 'Pantalla Activa';
       screenContent.style.opacity = '1';
       return;
@@ -160,14 +160,14 @@ document.addEventListener('DOMContentLoaded', () => {
     tabDarkBtn.addEventListener('click', () => {
       tabDarkBtn.classList.add('active');
       tabLightBtn.classList.remove('active');
-      mockupImage.src = import.meta.env.BASE_URL + 'images/proclama_dark.png';
+      mockupImage.src = import.meta.env.BASE_URL.replace(/\/?$/, "/") + 'images/proclama_dark.png';
       mockupImage.alt = 'Proclama Software Dashboard - Modo Oscuro';
     });
 
     tabLightBtn.addEventListener('click', () => {
       tabLightBtn.classList.add('active');
       tabDarkBtn.classList.remove('active');
-      mockupImage.src = import.meta.env.BASE_URL + 'images/proclama_light.png';
+      mockupImage.src = import.meta.env.BASE_URL.replace(/\/?$/, "/") + 'images/proclama_light.png';
       mockupImage.alt = 'Proclama Software Dashboard - Modo Claro';
     });
   }

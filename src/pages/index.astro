@@ -15,7 +15,7 @@ import '../styles/global.css';
   <header>
     <div class="container nav-wrapper">
       <a href="#" class="logo">
-        <img src={import.meta.env.BASE_URL + "images/logo.png"} alt="Proclama Logo">
+        <img src={import.meta.env.BASE_URL.replace(/\/?$/, "/") + "images/logo.png"} alt="Proclama Logo">
         <span>Proclama</span>
       </a>
 
@@ -83,7 +83,7 @@ import '../styles/global.css';
             <button class="tab-btn" id="tabLightBtn">Modo Claro</button>
           </div>
           <div class="mockup-wrapper">
-            <img id="mockupImage" class="active-mockup" src={import.meta.env.BASE_URL + "images/proclama_dark.png"} alt="Proclama Software Dashboard - Modo Oscuro">
+            <img id="mockupImage" class="active-mockup" src={import.meta.env.BASE_URL.replace(/\/?$/, "/") + "images/proclama_dark.png"} alt="Proclama Software Dashboard - Modo Oscuro">
           </div>
         </div>
       </div>
@@ -256,7 +256,7 @@ import '../styles/global.css';
           <div class="screen-bg-image" id="screenBg"></div>
           <div class="screen-dim"></div>
           <div class="screen-logo">
-            <img src={import.meta.env.BASE_URL + "images/logo.png"} alt="Proclama Logo mini">
+            <img src={import.meta.env.BASE_URL.replace(/\/?$/, "/") + "images/logo.png"} alt="Proclama Logo mini">
             <span>Proclama</span>
           </div>
           <div class="screen-content" id="screenContent">
@@ -439,7 +439,7 @@ import '../styles/global.css';
     <div class="container footer-grid">
       <div class="footer-info">
         <a href="#" class="footer-logo">
-          <img src={import.meta.env.BASE_URL + "images/logo.png"} alt="Proclama logo footer">
+          <img src={import.meta.env.BASE_URL.replace(/\/?$/, "/") + "images/logo.png"} alt="Proclama logo footer">
           <span>Proclama</span>
         </a>
         <div class="footer-copyright">
