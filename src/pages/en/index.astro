@@ -1,0 +1,457 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import '../../styles/global.css';
+---
+
+<Layout lang="en">
+<!-- Background Glowing Orbs -->
+  <div class="glow-bg">
+    <div class="glow-orb-1"></div>
+    <div class="glow-orb-2"></div>
+    <div class="glow-orb-3"></div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav-wrapper">
+      <a href="#" class="logo">
+        <img src={import.meta.env.BASE_URL + "images/logo.png"} alt="Proclama Logo">
+        <span>Proclama</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#remote">Remote Control</a></li>
+        <li><a href="#requirements">Requirements</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#download" class="nav-btn">Download</a></li>
+              <li style="display:flex; gap:8px; align-items:center; margin-left:15px; opacity:0.8; font-weight: 500;">
+          <a href={import.meta.env.BASE_URL} title="Español" style="padding: 4px;">ES</a>
+          <a href={import.meta.env.BASE_URL.replace(/\/?$/, "/") + "en/"} title="English" style="padding: 4px;">EN</a>
+          <a href={import.meta.env.BASE_URL.replace(/\/?$/, "/") + "pt/"} title="Português" style="padding: 4px;">PT</a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="badge">
+          <span></span> Version 1.2.0 Available
+        </div>
+        <h1>
+          Project worship and the Word <span>with elegance and control</span>
+        </h1>
+        <p>
+          Proclama is the multimedia presenter designed with a single purpose: <strong>to equip the local congregation.</strong> We know that adopting new technologies or affording high-end equipment can be a challenge. That is why we created a lightweight, accessible, and complexity-free tool that works incredibly on everyday computers, allowing any volunteer to project with excellence.
+        </p>
+        <div class="cta-group">
+          <a href="#pricing" class="btn btn-primary">
+            Start Free Trial
+            <span class="material-symbols-rounded" style="font-size: 20px; margin-left: 8px; vertical-align: middle;">arrow_forward</span>
+          </a>
+          <a href="#features" class="btn btn-secondary">View Features</a>
+        </div>
+        <div class="features-quick">
+          <div class="quick-stat">
+            <span class="num">100%</span>
+            <span class="label">Fluid C++ Code</span>
+          </div>
+          <div class="quick-stat">
+            <span class="num">14 Days</span>
+            <span class="label">Free Trial</span>
+          </div>
+          <div class="quick-stat">
+            <span class="num">&lt; 100ms</span>
+            <span class="label">On-the-fly Search</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="visual-glow"></div>
+        <div class="theme-switcher-container">
+          <div class="theme-tabs">
+            <button class="tab-btn active" id="tabDarkBtn">Dark Mode</button>
+            <button class="tab-btn" id="tabLightBtn">Light Mode</button>
+          </div>
+          <div class="mockup-wrapper">
+            <img id="mockupImage" class="active-mockup" src={import.meta.env.BASE_URL + "images/proclama_dark.png"} alt="Proclama Software Dashboard - Dark Mode">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Zero prior experience required</h2>
+        <p>If you know how to use a basic computer, you are already a Proclama expert. Our interface eliminates complicated studio panels and presents only what you need to guide your congregation without distractions.</p>
+      </div>
+
+      <div class="features-grid">
+        <!-- Feature 1 -->
+        <div class="feature-card">
+          <div class="card-icon">
+            <span class="material-symbols-rounded" style="font-size: 32px;">monitor</span>
+          </div>
+          <h3>Dynamic Dual Screen</h3>
+          <p>Operator console independent from the projection window. Shows real-time previews, video playback position, and bidirectionally synchronized volume.</p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-card">
+          <div class="card-icon">
+            <span class="material-symbols-rounded" style="font-size: 32px;">search</span>
+          </div>
+          <h3>Predictive Search (Spotlight)</h3>
+          <p>Smart on-the-fly search by pressing <code>Ctrl + F</code>. Find songs or scriptures by partial verse match in under 100ms and project them directly with a single enter.</p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-card">
+          <div class="card-icon">
+            <span class="material-symbols-rounded" style="font-size: 32px;">smartphone</span>
+          </div>
+          <h3>Synchronized Web Remote Control</h3>
+          <p>Built-in server with an optimized web console (Glassmorphic) on your phone or tablet. The playlist syncs bidirectionally in real-time, and multimedia buttons react smartly to the active content.</p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="feature-card">
+          <div class="card-icon">
+            <span class="material-symbols-rounded" style="font-size: 32px;">picture_as_pdf</span>
+          </div>
+          <h3>PDF Importer</h3>
+          <p>Load sheet music, announcements, or slides natively from PDF files. Proclama automatically splits the document into individual slides and places them directly in the playlist.</p>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="feature-card">
+          <div class="card-icon">
+            <span class="material-symbols-rounded" style="font-size: 32px;">palette</span>
+          </div>
+          <h3>Styles and Chroma Key Mode</h3>
+          <p>Configure fonts, sizes, and colors. Plus, activate chroma mode with a pure green background and lower-thirds subtitles ideal for live streams.</p>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="feature-card">
+          <div class="card-icon">
+            <span class="material-symbols-rounded" style="font-size: 32px;">backup</span>
+          </div>
+          <h3>Backups and Restore</h3>
+          <p>Generate portable <code>.proclamabackup</code> files that package the database (songs, bibles) and configurations in a single click, allowing you to migrate or safely backup everything.</p>
+        </div>
+
+        <!-- Feature 7 -->
+        <div class="feature-card">
+          <div class="card-icon">
+            <span class="material-symbols-rounded" style="font-size: 32px;">present_to_all</span>
+          </div>
+          <h3>Stage Display (PRO)</h3>
+          <p>Dedicated high-contrast output for musicians and speakers. Shows local time, current slide lyrics, and a preview of the next slide.</p>
+        </div>
+
+        <!-- Feature 8 -->
+        <div class="feature-card">
+          <div class="card-icon">
+            <span class="material-symbols-rounded" style="font-size: 32px;">settings_input_antenna</span>
+          </div>
+          <h3>NDI Network Output (PRO)</h3>
+          <p>Stream the clean projection signal or with Chroma Key background directly to the local network. Capture the stream in OBS Studio or vMix with latency under 100ms and without physical capture cards.</p>
+        </div>
+
+        <!-- Feature 9 -->
+        <div class="feature-card">
+          <div class="card-icon">
+            <span class="material-symbols-rounded" style="font-size: 32px;">dashboard_customize</span>
+          </div>
+          <h3>Modern and Professional UI</h3>
+          <p>A fully redesigned premium environment with deep dark themes, unified accent colors, subtle drop shadows, and a tinted quick-action bar to operate stress-free under pressure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Remote Demo Section -->
+  <section id="remote" class="demo-section">
+    <div class="container demo-grid">
+      <div class="demo-left">
+        <h2>Premium Web Remote Control</h2>
+        <p>
+          Break free from cables at the soundboard. Proclama integrates a local server that serves a responsive, modern-designed interactive control panel.
+        </p>
+        <p style="margin-top: 10px; font-size: 0.95rem; color: var(--text-secondary);">
+          Now with the <strong>Remote QR</strong> quick access panel in the toolbar, you can generate a 100% offline local QR code to scan and connect instantly with your smartphone.
+        </p>
+        <ul class="demo-features-list">
+          <li>
+            <span class="material-symbols-rounded" style="font-size: 20px; color: var(--primary); vertical-align: bottom; margin-right: 8px;">check_circle</span>
+            Real-time synchronization with the projector screen
+          </li>
+          <li>
+            <span class="material-symbols-rounded" style="font-size: 20px; color: var(--primary); vertical-align: bottom; margin-right: 8px;">check_circle</span>
+            Instant access via QR code or local IP address
+          </li>
+          <li>
+            <span class="material-symbols-rounded" style="font-size: 20px; color: var(--primary); vertical-align: bottom; margin-right: 8px;">check_circle</span>
+            Quick shortcuts: Clear text, Black screen, and Logo
+          </li>
+        </ul>
+      </div>
+
+      <div class="demo-showcase">
+        <!-- Smartphone Mockup -->
+        <div class="mock-phone">
+          <div class="phone-speaker"></div>
+          <div class="phone-screen">
+            <div class="phone-header">
+              Proclama Remote
+            </div>
+            
+            <div class="phone-playlist">
+              <div class="phone-item" data-slide-id="tu-fidelidad">
+                🎵 Tu Fidelidad
+              </div>
+              <div class="phone-item selected" data-slide-id="juan-3-16">
+                📖 Juan 3:16
+              </div>
+              <div class="phone-item" data-slide-id="genesis-1-1">
+                📖 Génesis 1:1
+              </div>
+              <div class="phone-item" data-slide-id="cuan-grande-el">
+                🎵 Cuan Grande es Él
+              </div>
+            </div>
+
+            <div class="phone-controls">
+              <button class="phone-btn" id="btnClear">
+                <span class="material-symbols-rounded" style="font-size: 16px;">clear_all</span>
+                Clear Text
+              </button>
+              <button class="phone-btn" id="btnLogo">
+                <span class="material-symbols-rounded" style="font-size: 16px;">wallpaper</span>
+                Logo
+              </button>
+              <button class="phone-btn phone-btn-danger" id="btnBlack">
+                <span class="material-symbols-rounded" style="font-size: 16px;">desktop_access_disabled</span>
+                Black Screen
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Projector Screen Mockup -->
+        <div class="mock-projector-screen" id="mockScreen">
+          <div class="screen-bg-image" id="screenBg"></div>
+          <div class="screen-dim"></div>
+          <div class="screen-logo">
+            <img src={import.meta.env.BASE_URL + "images/logo.png"} alt="Proclama Logo mini">
+            <span>Proclama</span>
+          </div>
+          <div class="screen-content" id="screenContent">
+            <div class="screen-text" id="screenText">
+              "Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna."
+            </div>
+            <div class="screen-ref" id="screenRef">
+              Juan 3:16
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Requirements Section -->
+  <section id="requirements" class="requirements-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>System Requirements</h2>
+        <p>Proclama is optimized to run with minimal resource consumption, ensuring stability during live presentations.</p>
+      </div>
+
+      <div class="requirements-grid">
+        <!-- Hardware Card -->
+        <div class="requirements-card">
+          <div class="req-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+          </div>
+          <h3>Hardware Requirements</h3>
+          <ul class="req-list">
+            <li><strong>Processor:</strong> Minimum Dual-Core 2.0 GHz (Recommended Intel i5 / AMD Ryzen 5 or higher).</li>
+            <li><strong>RAM Memory:</strong> Minimum 4 GB (Recommended 8 GB for smooth 4K video playback).</li>
+            <li><strong>Graphics:</strong> Integrated with OpenGL 3.0 or higher / DirectX 11 support.</li>
+            <li><strong>Storage:</strong> 200 MB of free space for the application and local database.</li>
+            <li><strong>Connectivity:</strong> Local Wi-Fi router to connect the remote control device.</li>
+          </ul>
+        </div>
+
+        <!-- Software Card -->
+        <div class="requirements-card">
+          <div class="req-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+          </div>
+          <h3>Operating Systems</h3>
+          <ul class="req-list">
+            <li><strong>Windows:</strong> Windows 10 or 11 (64-bit).</li>
+            <li><strong>macOS:</strong> macOS 11 (Big Sur) or later (Native Intel and Apple Silicon support).</li>
+            <li><strong>Linux:</strong> Arch Linux / Ubuntu 22.04 LTS or higher (Requires Qt 6 and DBus environment).</li>
+            <li><strong>Web Remote Control:</strong> Any mobile device with a browser connected to the local network.</li>
+            <li><strong>Integrated Libraries:</strong> The NDI 6 SDK is pre-packaged and integrated into the official Windows, macOS, and Linux installers/AppImages to run without additional installations.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="pricing-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Flexible Licensing</h2>
+        <p>Choose the option that best fits the size and needs of your congregation.</p>
+      </div>
+
+      <div class="pricing-card-wrapper">
+        <!-- Trial Card -->
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3>Trial Period</h3>
+            <p class="pricing-desc">Try Proclama without limits and experience its full power.</p>
+            <div class="price">$0<span>/ 14 days</span></div>
+          </div>
+          
+          <ul class="pricing-features">
+            <li>
+              <span class="material-symbols-rounded" style="font-size: 18px; color: var(--primary); vertical-align: bottom; margin-right: 8px;">check_circle</span>
+              14 days of full unrestricted trial
+            </li>
+            <li>
+              <span class="material-symbols-rounded" style="font-size: 18px; color: var(--primary); vertical-align: bottom; margin-right: 8px;">check_circle</span>
+              Access to NDI, Stage Display, and Remote Control
+            </li>
+            <li>
+              <span class="material-symbols-rounded" style="font-size: 18px; color: var(--primary); vertical-align: bottom; margin-right: 8px;">check_circle</span>
+              Unlimited local database
+            </li>
+            <li>
+              <span class="material-symbols-rounded" style="font-size: 18px; color: var(--primary); vertical-align: bottom; margin-right: 8px;">check_circle</span>
+              <strong>Return to free version:</strong> Upon expiration, a watermark is activated on projection, and modules are limited (no NDI, no Stage Display, blocked remote control, and max 3 Bible versions).
+            </li>
+          </ul>
+          
+          <a href="#download" class="btn btn-secondary">Start Evaluation</a>
+        </div>
+
+        <!-- Perpetual Card -->
+        <div class="pricing-card premium">
+          <div class="pricing-header">
+            <h3>Congregation License</h3>
+            <p class="pricing-desc">Unlimited and permanent use for all your church computers.</p>
+            <div class="price">$19.99<span>/ one-time payment</span></div>
+          </div>
+          
+          <ul class="pricing-features">
+            <li>
+              <span class="material-symbols-rounded" style="font-size: 18px; color: var(--primary); vertical-align: bottom; margin-right: 8px;">check_circle</span>
+              Lifetime license and <strong>your church name</strong> in the app
+            </li>
+            <li>
+              <span class="material-symbols-rounded" style="font-size: 18px; color: var(--primary); vertical-align: bottom; margin-right: 8px;">check_circle</span>
+              Unlimited <strong>NDI Output, Chroma Mode, and Remote Control</strong>
+            </li>
+            <li>
+              <span class="material-symbols-rounded" style="font-size: 18px; color: var(--primary); vertical-align: bottom; margin-right: 8px;">check_circle</span>
+              Active <strong>Dual Bible and Stage Display</strong>
+            </li>
+            <li>
+              <span class="material-symbols-rounded" style="font-size: 18px; color: var(--primary); vertical-align: bottom; margin-right: 8px;">check_circle</span>
+              Minor updates and priority support
+            </li>
+          </ul>
+          
+          <a href="https://buy.stripe.com/bJe3cv3lwc6g9sn4Y6e7m00" target="_blank" class="btn btn-primary">Purchase License</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download Section -->
+  <section id="download" class="download-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge" style="margin-bottom: 15px;">
+          <span></span> v1.2.0 Stable
+        </div>
+        <h2>Download Proclama</h2>
+        <p>Start your 14-day free trial. Compatible with all your favorite operating systems.</p>
+      </div>
+      
+      <div class="download-grid">
+        <a href="https://github.com/Gargadon/Proclama/releases/download/v1.2.0/proclama-v1.2.0-Windows-Installer.exe" class="download-card">
+          <span class="material-symbols-rounded download-icon">window</span>
+          <span class="download-title">Windows</span>
+          <span class="download-meta">.exe (64-bit)</span>
+        </a>
+        
+        <a href="https://github.com/Gargadon/Proclama/releases/download/v1.2.0/proclama-v1.2.0-macOS.dmg" class="download-card">
+          <span class="material-symbols-rounded download-icon">laptop_mac</span>
+          <span class="download-title">macOS</span>
+          <span class="download-meta">.dmg (Intel / Apple Silicon)</span>
+        </a>
+        
+        <a href="https://github.com/Gargadon/Proclama/releases/download/v1.2.0/proclama-v1.2.0-Linux-x86_64.deb" class="download-card">
+          <span class="material-symbols-rounded download-icon">terminal</span>
+          <span class="download-title">Ubuntu / Debian</span>
+          <span class="download-meta">.deb</span>
+        </a>
+        
+        <a href="https://github.com/Gargadon/Proclama/releases/download/v1.2.0/proclama-v1.2.0-Linux-x86_64.rpm" class="download-card">
+          <span class="material-symbols-rounded download-icon">terminal</span>
+          <span class="download-title">Fedora / RHEL</span>
+          <span class="download-meta">.rpm</span>
+        </a>
+        
+        <a href="https://github.com/Gargadon/Proclama/releases/download/v1.2.0/proclama-v1.2.0-Linux-x86_64.pkg.tar.zst" class="download-card">
+          <span class="material-symbols-rounded download-icon">terminal</span>
+          <span class="download-title">Arch Linux</span>
+          <span class="download-meta">.pkg.tar.zst</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container" style="text-align: center; margin-bottom: 2rem; font-style: italic; color: var(--text-secondary); opacity: 0.8;">
+      "Proclamad entre las naciones su gloria, en todos los pueblos sus maravillas." - <strong>Salmos 96:3</strong>
+    </div>
+    <div class="container footer-grid">
+      <div class="footer-info">
+        <a href="#" class="footer-logo">
+          <img src={import.meta.env.BASE_URL + "images/logo.png"} alt="Proclama logo footer">
+          <span>Proclama</span>
+        </a>
+        <div class="footer-copyright">
+          © 2026 Proclama. Developed for the love of His Word.
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/Gargadon/Proclama" target="_blank">GitHub</a>
+        <a href="mailto:dkantun@gmail.com">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  
+</Layout>
