@@ -390,6 +390,7 @@ header.scrolled {
 
 .hero-visual img {
   width: 120%;
+  height: auto;
   max-width: 750px;
   border-radius: var(--border-radius-lg);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -622,6 +623,7 @@ header.scrolled {
 
 .screen-logo img {
   height: 18px;
+  width: auto;
 }
 
 .screen-logo span {
@@ -901,6 +903,7 @@ footer {
 
 .footer-logo img {
   height: 28px;
+  width: auto;
 }
 
 .footer-copyright {

@@ -1,6 +1,10 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import '../../styles/global.css';
+import logoSrc from '../../images/logo.png';
+import proclamaDarkSrc from '../../images/proclama_dark.png';
+import proclamaLightSrc from '../../images/proclama_light.png';
 ---
 
 <Layout lang="pt">
@@ -14,8 +18,8 @@ import '../../styles/global.css';
   <!-- Header -->
   <header>
     <div class="container nav-wrapper">
-      <a href="#" class="logo">
-        <img src={import.meta.env.BASE_URL.replace(/\/?$/, "/") + "images/logo.png"} alt="Proclama Logo">
+      <a href="/pt/" class="logo">
+        <Image src={logoSrc} alt="Proclama Logo" loading="eager" />
         <span>Proclama</span>
       </a>
 
@@ -45,7 +49,7 @@ import '../../styles/global.css';
     <div class="container hero-grid">
       <div class="hero-content">
         <div class="badge">
-          <span></span> Versão 1.2.0 Disponível
+          <span></span> Versão 1.2.1 Disponível
         </div>
         <h1>
           Projete louvor e a Palavra <span>com elegância e controle</span>
@@ -83,7 +87,8 @@ import '../../styles/global.css';
             <button class="tab-btn" id="tabLightBtn">Modo Claro</button>
           </div>
           <div class="mockup-wrapper">
-            <img id="mockupImage" class="active-mockup" src={import.meta.env.BASE_URL.replace(/\/?$/, "/") + "images/proclama_dark.png"} alt="Proclama Software Dashboard - Modo Escuro">
+            <Image id="mockupDark" src={proclamaDarkSrc} alt="Proclama Software Dashboard - Modo Escuro" class="active-mockup" loading="eager" />
+            <Image id="mockupLight" src={proclamaLightSrc} alt="Proclama Software Dashboard - Modo Claro" class="active-mockup" loading="eager" style="display: none" />
           </div>
         </div>
       </div>
@@ -256,7 +261,7 @@ import '../../styles/global.css';
           <div class="screen-bg-image" id="screenBg"></div>
           <div class="screen-dim"></div>
           <div class="screen-logo">
-            <img src={import.meta.env.BASE_URL.replace(/\/?$/, "/") + "images/logo.png"} alt="Proclama Logo mini">
+            <Image src={logoSrc} alt="Proclama Logo mini" />
             <span>Proclama</span>
           </div>
           <div class="screen-content" id="screenContent">
@@ -358,7 +363,7 @@ import '../../styles/global.css';
           <div class="pricing-header">
             <h3>Licença por Congregação</h3>
             <p class="pricing-desc">Uso ilimitado e permanente para todos os computadores de sua igreja.</p>
-            <div class="price">$19.99<span>/ pagamento único</span></div>
+            <div class="price">$19.99 USD<span>/ pagamento único, impostos incluídos</span></div>
           </div>
           
           <ul class="pricing-features">
@@ -391,38 +396,38 @@ import '../../styles/global.css';
     <div class="container">
       <div class="section-header">
         <div class="badge" style="margin-bottom: 15px;">
-          <span></span> v1.2.0 Estável
+          <span></span> v1.2.1 Estável
         </div>
         <h2>Baixar Proclama</h2>
         <p>Inicie seu teste gratuito de 14 dias. Compatível com todos os seus sistemas operacionais favoritos.</p>
       </div>
       
       <div class="download-grid">
-        <a href="https://github.com/Gargadon/Proclama/releases/download/v1.2.0/proclama-v1.2.0-Windows-Installer.exe" class="download-card">
+        <a href="https://github.com/Gargadon/Proclama/releases/download/v1.2.1/proclama-v1.2.1-Windows-Installer.exe" class="download-card">
           <span class="material-symbols-rounded download-icon">window</span>
           <span class="download-title">Windows</span>
           <span class="download-meta">.exe (64-bit)</span>
         </a>
         
-        <a href="https://github.com/Gargadon/Proclama/releases/download/v1.2.0/proclama-v1.2.0-macOS.dmg" class="download-card">
+        <a href="https://github.com/Gargadon/Proclama/releases/download/v1.2.1/proclama-v1.2.1-macOS.dmg" class="download-card">
           <span class="material-symbols-rounded download-icon">laptop_mac</span>
           <span class="download-title">macOS</span>
           <span class="download-meta">.dmg (Intel / Apple Silicon)</span>
         </a>
         
-        <a href="https://github.com/Gargadon/Proclama/releases/download/v1.2.0/proclama-v1.2.0-Linux-x86_64.deb" class="download-card">
+        <a href="https://github.com/Gargadon/Proclama/releases/download/v1.2.1/proclama-v1.2.1-Linux-x86_64.deb" class="download-card">
           <span class="material-symbols-rounded download-icon">terminal</span>
           <span class="download-title">Ubuntu / Debian</span>
           <span class="download-meta">.deb</span>
         </a>
         
-        <a href="https://github.com/Gargadon/Proclama/releases/download/v1.2.0/proclama-v1.2.0-Linux-x86_64.rpm" class="download-card">
+        <a href="https://github.com/Gargadon/Proclama/releases/download/v1.2.1/proclama-v1.2.1-Linux-x86_64.rpm" class="download-card">
           <span class="material-symbols-rounded download-icon">terminal</span>
           <span class="download-title">Fedora / RHEL</span>
           <span class="download-meta">.rpm</span>
         </a>
         
-        <a href="https://github.com/Gargadon/Proclama/releases/download/v1.2.0/proclama-v1.2.0-Linux-x86_64.pkg.tar.zst" class="download-card">
+        <a href="https://github.com/Gargadon/Proclama/releases/download/v1.2.1/proclama-v1.2.1-Linux-x86_64.pkg.tar.zst" class="download-card">
           <span class="material-symbols-rounded download-icon">terminal</span>
           <span class="download-title">Arch Linux</span>
           <span class="download-meta">.pkg.tar.zst</span>
@@ -438,8 +443,8 @@ import '../../styles/global.css';
     </div>
     <div class="container footer-grid">
       <div class="footer-info">
-        <a href="#" class="footer-logo">
-          <img src={import.meta.env.BASE_URL.replace(/\/?$/, "/") + "images/logo.png"} alt="Proclama logo footer">
+        <a href="/pt/" class="footer-logo">
+          <Image src={logoSrc} alt="Proclama logo footer" />
           <span>Proclama</span>
         </a>
         <div class="footer-copyright">

@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const screenRef = document.getElementById('screenRef');
   const mockScreen = document.getElementById('mockScreen');
   const screenBg = document.getElementById('screenBg');
+  const screenLogoImg = document.querySelector('.screen-logo img');
   
   const btnClear = document.getElementById('btnClear');
   const btnBlack = document.getElementById('btnBlack');
@@ -75,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // If logo active
     if (isLogoShown) {
-      screenText.innerHTML = `<div style="display:flex; flex-direction:column; align-items:center; gap:10px;"><img src="${import.meta.env.BASE_URL.replace(/\/?$/, "/")}images/logo.png" style="height: 60px; filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));"> <span style="font-family:'Outfit',sans-serif; font-weight:800; font-size:1.6rem; letter-spacing: 0.05em;">PROCLAMA</span></div>`;
+      screenText.innerHTML = `<div style="display:flex; flex-direction:column; align-items:center; gap:10px;"><img src="${screenLogoImg.src}" style="height: 60px; filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));"> <span style="font-family:'Outfit',sans-serif; font-weight:800; font-size:1.6rem; letter-spacing: 0.05em;">PROCLAMA</span></div>`;
       screenRef.textContent = 'Pantalla Activa';
       screenContent.style.opacity = '1';
       return;
@@ -154,21 +155,22 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Dark/Light Mode Screenshot Switcher ---
   const tabDarkBtn = document.getElementById('tabDarkBtn');
   const tabLightBtn = document.getElementById('tabLightBtn');
-  const mockupImage = document.getElementById('mockupImage');
+  const mockupDark = document.getElementById('mockupDark');
+  const mockupLight = document.getElementById('mockupLight');
 
-  if (tabDarkBtn && tabLightBtn && mockupImage) {
+  if (tabDarkBtn && tabLightBtn && mockupDark && mockupLight) {
     tabDarkBtn.addEventListener('click', () => {
       tabDarkBtn.classList.add('active');
       tabLightBtn.classList.remove('active');
-      mockupImage.src = import.meta.env.BASE_URL.replace(/\/?$/, "/") + 'images/proclama_dark.png';
-      mockupImage.alt = 'Proclama Software Dashboard - Modo Oscuro';
+      mockupDark.style.display = '';
+      mockupLight.style.display = 'none';
     });
 
     tabLightBtn.addEventListener('click', () => {
       tabLightBtn.classList.add('active');
       tabDarkBtn.classList.remove('active');
-      mockupImage.src = import.meta.env.BASE_URL.replace(/\/?$/, "/") + 'images/proclama_light.png';
-      mockupImage.alt = 'Proclama Software Dashboard - Modo Claro';
+      mockupLight.style.display = '';
+      mockupDark.style.display = 'none';
     });
   }
 
