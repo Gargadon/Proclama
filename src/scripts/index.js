@@ -1,4 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
+  document.querySelector('.features-quick .quick-stat:nth-child(3)')?.remove();
+  document.querySelector('.download-section')?.removeAttribute('id');
+  document.querySelector('.platform-downloads')?.setAttribute('id', 'download');
+  const pagePrefix = window.location.pathname.startsWith('/Proclama/') ? '/Proclama/' : '/';
+  document.querySelectorAll('img[src^="/images/"]').forEach((image) => {
+    image.src = pagePrefix + image.getAttribute('src').slice('/images/'.length);
+  });
   // --- Header Scroll Effect ---
   const header = document.querySelector('header');
   window.addEventListener('scroll', () => {
@@ -37,25 +44,29 @@ document.addEventListener('DOMContentLoaded', () => {
   
   const playlistItems = document.querySelectorAll('.phone-item');
 
-  // Slide database
-  const slides = {
-    'tu-fidelidad': {
-      text: 'Tu fidelidad es grande,<br>Tu fidelidad incomparable es.<br>Nadie como Tú, bendito Dios,<br>Grande es Tu fidelidad.',
-      ref: 'Himno de Adoración'
+  // Localized slide database for the interactive demo
+  const lang = document.querySelector('main')?.dataset.lang || 'es';
+  const slidesByLanguage = {
+    es: {
+      'tu-fidelidad': { text: 'Sublime gracia del Señor,<br>Que a un infeliz salvó,<br>Fui ciego mas hoy veo yo,<br>Perdido y Él me halló.', ref: 'Sublime Gracia' },
+      'romans-8-28': { text: '\"Y sabemos que a los que aman a Dios, todas las cosas les ayudan a bien.\"', ref: 'Romanos 8:28' },
+      'juan-3-16': { text: '\"Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna.\"', ref: 'Juan 3:16' },
+      'cuan-grande-el': { image: true, imageLabel: 'Cruz', ref: 'Cruz' }
     },
-    'genesis-1-1': {
-      text: '\"En el principio creó Dios los cielos y la tierra.\"',
-      ref: 'Génesis 1:1'
+    en: {
+      'tu-fidelidad': { text: 'Amazing grace! How sweet the sound<br>That saved a wretch like me!<br>I once was lost, but now am found,<br>Was blind, but now I see.', ref: 'Amazing Grace' },
+      'romans-8-28': { text: '\"And we know that all things work together for good to them that love God.\"', ref: 'Romans 8:28' },
+      'juan-3-16': { text: '\"For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.\"', ref: 'John 3:16' },
+      'cuan-grande-el': { image: true, imageLabel: 'Cross', ref: 'Cross' }
     },
-    'juan-3-16': {
-      text: '\"Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna.\"',
-      ref: 'Juan 3:16'
-    },
-    'cuan-grande-el': {
-      text: 'Señor, mi Dios, al contemplar los cielos,<br>El firmamento y las estrellas mil,<br>Al oír Tu voz en los potentes truenos<br>Y ver brillar al sol en su cenit...',
-      ref: 'Cuan Grande es Él'
+    pt: {
+      'tu-fidelidad': { text: 'Maravilhosa graça, quão doce é o som<br>Que salvou alguém como eu.<br>Eu estava perdido, mas fui encontrado;<br>Estava cego, mas agora vejo.', ref: 'Maravilhosa Graça' },
+      'romans-8-28': { text: '\"Sabemos que todas as coisas cooperam para o bem daqueles que amam a Deus.\"', ref: 'Romanos 8:28' },
+      'juan-3-16': { text: '\"Porque Deus amou o mundo de tal maneira que deu o seu Filho unigênito, para que todo aquele que nele crê não pereça, mas tenha a vida eterna.\"', ref: 'João 3:16' },
+      'cuan-grande-el': { image: true, imageLabel: 'Cruz', ref: 'Cruz' }
     }
   };
+  const slides = slidesByLanguage[lang] || slidesByLanguage.es;
 
   let currentSlideId = 'juan-3-16';
   let isCleared = false;
@@ -77,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // If logo active
     if (isLogoShown) {
       screenText.innerHTML = `<div style="display:flex; flex-direction:column; align-items:center; gap:10px;"><img src="${screenLogoImg.src}" style="height: 60px; filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));"> <span style="font-family:'Outfit',sans-serif; font-weight:800; font-size:1.6rem; letter-spacing: 0.05em;">PROCLAMA</span></div>`;
-      screenRef.textContent = 'Pantalla Activa';
+      screenRef.textContent = lang === 'en' ? 'Active Screen' : lang === 'pt' ? 'Tela Ativa' : 'Pantalla Activa';
       screenContent.style.opacity = '1';
       return;
     }
@@ -91,6 +102,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Standard slide update
     const slide = slides[currentSlideId];
     if (slide) {
+      if (slide.image) {
+        screenText.innerHTML = `<div class="screen-cross" role="img" aria-label="${slide.imageLabel}"></div>`;
+        screenRef.textContent = slide.ref;
+        screenContent.style.opacity = '1';
+        return;
+      }
       screenText.innerHTML = slide.text;
       screenRef.textContent = slide.ref;
       screenContent.style.opacity = '1';
